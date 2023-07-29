@@ -1,12 +1,14 @@
-import dotenv from 'dotenv';
-import { MongoClient, ServerApiVersion } from 'mongodb';
 
-dotenv.config();
+const { MongoClient } = require('mongodb');
+const { ServerApiVersion } = require('mongodb');
+const path = require('path');
+const dotenv = require('dotenv');
 
-const uri = `mongodb+srv://${process.env.MONGO_ADMIN_UN}:${process.env.MONGO_ADMIN_PW}@c1.sdqza7d.mongodb.net/?retryWrites=true&w=majority`;
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+const uri = process.env.MONGO_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-
 async function startMongo() {
     MongoClient.connect(uri, {
         serverApi: {
@@ -14,8 +16,7 @@ async function startMongo() {
             strict: true,
             deprecationErrors: true,
         },
-    })
-        .then(async (client) => {
+    }).then(async (client) => {
             try {
                 // Connect the client to the server	(optional starting in v4.7)
                 await client.connect();
@@ -32,4 +33,4 @@ async function startMongo() {
         .catch((err) => console.log(err));
 }
 
-export default startMongo;
+module.exports = startMongo;

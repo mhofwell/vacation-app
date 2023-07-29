@@ -1,7 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import startMongo from '../util/mongodb.js';
+// import express from 'express';
+// import cors from 'cors';
+// import startMongo from '../util/mongodb.js';
 
+const express = require('express');
+const cors = require('cors');
+const startMongo = require('../util/mongodb');
 
 // start the express server
 const app = express();
@@ -10,7 +13,7 @@ const app = express();
 app.use(cors());
 
 // database connection
-startMongo(); 
+startMongo();
 
 // defining routes
 app.get('/api/users', (req, res, next) => {
