@@ -12,9 +12,6 @@ const app = express();
 // server configuration
 app.use(cors());
 
-// database connection
-startMongo();
-
 // defining routes
 app.get('/api/users', (req, res, next) => {
     const users = [
