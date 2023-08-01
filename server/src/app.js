@@ -1,10 +1,5 @@
-// import express from 'express';
-// import cors from 'cors';
-// import startMongo from '../util/mongodb.js';
-
 const express = require('express');
 const cors = require('cors');
-const startMongo = require('../util/mongodb');
 
 // start the express server
 const app = express();
