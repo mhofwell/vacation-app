@@ -1,11 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const startMongo = require('../util/mongodb.js');
 
 // start the express server
 const app = express();
 
 // server configuration
 app.use(cors());
+
+startMongo();
 
 // defining routes
 app.get('/api/users', (req, res, next) => {

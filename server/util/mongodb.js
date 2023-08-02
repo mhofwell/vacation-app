@@ -30,6 +30,6 @@ const startMongo = async () => {
         // Ensures that the client will close when you finish/error
         await client.close();
     }
-}
+};
 
-startMongo().catch(console.dir);
+module.exports = startMongo;
